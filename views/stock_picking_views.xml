@@ -5,10 +5,10 @@
         <field name="model">stock.picking</field>
         <field name="inherit_id" ref="stock.view_picking_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='operations']" position="after">
-                <page string="Notas adicionales" name="custom_notes">
-                    <field name="notes" placeholder="Añadir notas aquí..."/>
-                </page>
+            <xpath expr="//page[@name='operations']//field[@name='move_ids_without_package']" position="after">
+                <group string="Notas adicionales" name="custom_notes_group" colspan="4">
+                    <field name="notes" placeholder="Añadir notas aquí..." nolabel="1"/>
+                </group>
             </xpath>
         </field>
     </record>
