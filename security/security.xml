@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Definir categoría para nuestros grupos de seguridad -->
+        <record id="module_category_company_contacts" model="ir.module.category">
+            <field name="name">Contactos de Compañía</field>
+            <field name="sequence">50</field>
+        </record>
+
+        <!-- Crear grupo para gestionar contactos de compañía -->
+        <record id="group_company_contact_manager" model="res.groups">
+            <field name="name">Gestor de Contactos de Compañía</field>
+            <field name="category_id" ref="module_category_company_contacts"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <!-- Añadir usuarios administradores automáticamente a este grupo -->
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+</odoo>
